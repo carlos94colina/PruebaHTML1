@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+
+        var app = {
+            core: {
+                Nombre: "",
+                Apellido1: "",
+                Apellido2: "",
+                //cuando hacemos singleton el : es lo mismo que = 
+            },
+            //el core para variables
+            Process: {
+                Contador: 0,
+                Prueba: function (n) {
+                    app.core.Nombre = n;
+                    app.Process.Prueba2();
+                },
+                Prueba2: function () {
+                    document.writeln(app.core.Nombre + " " + app.core.Apellido1 + " " + app.core.Apellido2);
+                }
+                    //Document.writein(app.core.Nombre + "" + app.Core.Apellido1 + "" + app.core.Apellido2);
+            },
+            //funciones
+            Init: {
+                demo: function (n, a1, a2) {
+                    app.core.Nombre = n;
+                    app.core.Apellido1 = a1;
+                    app.core.Apellido2 = a2;
+                }
+                //funcion por cada pagina ejecucion en funciones
+            }
+        };
+
+        app.Init.demo('Carlos', 'Colina', 'Davila');
+        app.Process.Prueba('Sonia');
+        //aqui tenemos un singleton
+
+    </script>
+</body>
+</html>

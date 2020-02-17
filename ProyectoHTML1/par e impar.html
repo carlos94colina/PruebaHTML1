@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="https://localhost:44302/Content/bootstrap.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12"></div>
+        </div>
+        <div class="row">
+            <div class="col-12"></div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <input id="i1" class="form-control" />
+            </div>
+        </div>
+        <button class="btn btn-outline-danger" id="b1">Ejecutar Js</button>
+        <button class="btn btn-outline-success" id="b2">Ejecutar Js</button>
+    </div>
+
+    <script>var col = document.getElementsByClassName('col-12')[0];
+        var col2 = document.getElementsByClassName('col-12')[1];
+
+        document.getElementById('b1').onclick = function () {
+            col.innerHTML = '<h1 style="color:red;">Hola Mundo</h1><hr />' ;
+        }
+        document.getElementById('b2').onclick = function () {
+            funciones.analizar1();
+        }
+
+        var funciones = {
+            pintar1: function () {
+                for (var i = 0; i < 101; i += 5) {
+                    console.log(i);
+                    col2.innerHTML += i + '-';
+                }
+            },
+            analizar1: function () {
+                var re = document.getElementById('i1');
+                var x = parseInt(re.value);
+                var z = x % 2;
+                if (z == 0) {
+                    col2.innerHTML = "Par";
+                } else {
+                    col2.innerHTML = "Inpar";
+                }
+            }
+
+        };</script>
+</body>
+</html>

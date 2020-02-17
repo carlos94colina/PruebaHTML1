@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Demos - Sentencias</title>
+</head>
+<body>
+    <script>
+        var app = {
+            demos: {
+                contador: function ( inicio, fin, salto) {
+                    for (var i = inicio; i < fin + 1 ; i = salto) {
+                        (i != 100) ? document.writeln(i + '-') : document.writeln(i);
+                    }       
+                    }
+                }
+            }
+        };
+        var inicio = parseInt(prompt('indica el numero inicio', 1));
+        var fin = parseInt(prompt('indica el numero fin', 100));
+        var salto = parseInt(prompt('indica el numero de salto', 1));
+        app.demos.contador(inicio, fin, salto);
+
+        //cuando ejecute me saldra que ahora step lo tengo como numero y ahora me deberia funcionar 
+        //parcein convierte texto a numerico numeros enteros y parcefloat en decimla
+
+        //app.demos.contador(parseInt(prompt('indica el numero de salto', 1)));
+        //esto es lo mismo que la parte de arriba lo que se esta haciendo es metiendo dentro de uno
+    </script>
+</body>
+</html>

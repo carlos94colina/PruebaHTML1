@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+    <div class="container"></div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-10">
+            <h1>Consulta Temperatura</h1>
+            <hr />
+            <input class="form-control" />
+            <button id="b1" class="btn btn-block btn-primary">Consultar</button>
+            <div class="col"></div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-8 text-center"></div>
+        <div class="col">
+        </div>
+    </div>
+
+    <script>
+        //crear un objeto html request
+                     
+        document.getElementById('b1').onclick = function () {
+            var xhr = new XMLHttpRequest();
+
+            var codigop = document.getElementsByTagName('input')[0].value;
+
+            //CONFIGURARLO DARLE LA INFO NECESARIA PARA HACER LA COMUNICACION
+            //la url y los datos son con una api aportada por borja
+            var datos = 'es/' + codigop;
+            var url = 'https://api.zippopotam.us/' + datos;
+
+            xhr.open('get', url, true);
+
+            // opcionalmente a;adimos informacion a la cabecera HEAD
+            //control +k +control +d arreglo todo la forma de escritura
+            xhr.setRequestHeader('Content-Type', 'text/plain');
+            //true para decirle que la com es asincrona
+            // siempre hay que capturar el evento y luego el sent siempre
+            //3er paso capturar el evento onReadyStateChange que se produce cuando cambia el estado de la conexion
+            xhr.onreadystatechange = function (e) {
+                //e es de event del objeto event pero si no pongo nada no pasa nada
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        var res = JSON.parse(xhr.responseText);
+                        document.getElementsByClassName('col-8')[0].innerHTML = '<h1><b> Ciudad <b/>' + res.places[0].state + '<h1/>';
+                        document.getElementsByClassName('col-8')[0].innerHTML += '<h1><b> Longitud <b/>' + res.places[0].longitude + '<h1/>';
+                        document.getElementsByClassName('col-8')[0].innerHTML += '<h1><b> Place Name <b/>' + res.places[0]["place name"] + '<h1/>';
+                        document.getElementsByClassName('col-8')[0].innerHTML += '<h1><b> State Abrevation <b/>' + res.places[0]["state abbreviation"] + '<h1/>';
+
+                    } else {
+                        document.getElementsByTagName('body')[0].innerHTML = 'error:' + xhr.status + ',' + xhr.statusText;
+                        //podemos mostrar el error enviado como respuesta
+                    }
+                }
+                else {
+                    //podemos ir mostrando el estado de la conexion
+                }
+
+            };
+
+            //iniciamos la conexion
+
+            xhr.send();
+        }
+
+    </script>
+</body>
+</html>

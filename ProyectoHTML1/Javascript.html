@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    console.log("Programa Iniciado")
+
+    var nombre = "Carlos";
+    var apellido1 = "Colina";
+    var apellido2;
+
+    var nombrecompleto = nombre + " " + apellido1 + " " + apellido2;
+    //java lo que hace es que si declaro una nueva variable con el mismo nombre en lo que quiero ejecutar pues me absorvera la variable mas cercana por ejemplo en el caso este como declare una nueva variable llamada nombre=javier me sustituye la otra que era carlos e igual mas abajo con nombre =michelle
+    // para las funciones es lo mismo pero luego las tengo que llamar para que ejecute si no no puedo hacer nada
+    nombre = "Javier"
+     document.writeln(nombrecompleto + '<br/>');
+    document.writeln(nombre + " " + apellido1 + " " + apellido2 + '<br/>');
+
+    function Prueba() {
+          nombre = "Michelle";
+         document.writeln('P1:' + nombre + " " + apellido1 + " " + apellido2 +'<br/>');
+    }
+
+    //si quito la variable variable y pongo solo nombre me sale el nombre de antes en nombre ya que esta accediendo a la anterio
+
+     function Prueba2() {
+         document.writeln('P2:' + nombre + " " + apellido1 + " " + apellido2+ '<br/>');
+    }
+
+    Prueba();
+    Prueba2();
+    
+    console.log("Programa Finalizado")
+</script>
+    <noscript>
+        <p><b>No es posible ejecutar porque el navegador no soporta JS.</b> </p>
+    </noscript>
+ 
+</body>
+</html>

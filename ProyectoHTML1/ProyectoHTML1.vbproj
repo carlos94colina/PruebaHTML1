@@ -94,15 +94,27 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="clasequefalte1.html" />
+    <Content Include="clasequefalte2.html" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Cruz de caravaca.html" />
     <Content Include="estilos\StyleSheet1.css" />
+    <Content Include="FormularioBorja.html" />
+    <Content Include="FormularioPrueba.html" />
     <Content Include="HtmlPage1.html" />
     <Content Include="imagenes\spotify.jpg" />
+    <Content Include="Javascript.html" />
+    <Content Include="JS1BORJA.html" />
+    <Content Include="JS2.html" />
+    <Content Include="JS2BORJA.html" />
+    <Content Include="par e impar.html" />
+    <Content Include="proceso-formulario.aspx" />
+    <Content Include="pruebaetiquetaHTML.html" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -223,6 +235,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="proceso-formulario.aspx.designer.vb">
+      <DependentUpon>proceso-formulario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="proceso-formulario.aspx.vb">
+      <DependentUpon>proceso-formulario.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

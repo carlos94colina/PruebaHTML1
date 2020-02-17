@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+    <div class="container"></div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-10">
+            <h1>Cambio Divisa</h1>
+            <hr />
+            <input class="form-control" />
+            <button id="b1" class="btn btn-block btn-primary">Calcular Divisa</button>
+            <div class="col"></div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-8 text-center"></div>
+        <div class="col">
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('b1').onclick = function () {
+            var xhr = new XMLHttpRequest();
+
+            var divisa = parseInt(document.getElementsByTagName('input')[0].value);
+            var url = 'http://data.fixer.io/api/latest?access_key=6c00e3f56bdd27b018d2001d055df2f6';
+
+            xhr.open('get', url, true);
+
+            xhr.setRequestHeader('Content-Type', 'text/plain');
+
+            xhr.onreadystatechange = function (e) {
+
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        var res = JSON.parse(xhr.responseText);
+                        console.log(res);
+                        document.getElementsByClassName('col-8')[0].innerHTML = '<h1><b> Dolar  <b/>' + (Number(res.rates.USD) * divisa) + '<h1/>';
+                        document.getElementsByClassName('col-8')[0].innerHTML += '<h1><b> Libra Esterlina  <b/>' + (Number(res.rates.GBP) * divisa) + '<h1/>';
+                    } else {
+                        document.getElementsByTagName('body')[0].innerHTML = 'error:' + xhr.status + ',' + xhr.statusText;
+                    }
+                }
+            };
+
+            xhr.send();
+        }
+    </script>
+</body>
+</html>

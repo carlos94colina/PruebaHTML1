@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+        var app = {
+            Core: {
+                Nombre: '',
+                Apellido1: '',
+                Apellido2: ''
+            },
+            Process: {
+                Contador: 0,
+                Prueba: function (n) {
+                    app.Core.Nombre = n;
+                    //document.writeln(app.Core.Nombre + ' ' + app.Core.Apellido1 + ' ' + app.Core.Apellido2);
+                    app.Process.Prueba2();
+                },
+                Prueba2: function () {
+                    document.writeln(app.Core.Nombre + ' ' + app.Core.Apellido1 + ' ' + app.Core.Apellido2);
+                }
+            },
+            Init: {
+                Demo: function (n, a1, a2) {
+                    app.Core.Nombre = n;
+                    app.Core.Apellido1 = a1;
+                    app.Core.Apellido2 = a2;
+                }
+            }
+        };
+
+        app.Init.Demo('Borja', 'Cabeza', 'Rozas');
+        app.Process.Prueba('Sonia');
+
+    </script>
+</body>
+</html>
